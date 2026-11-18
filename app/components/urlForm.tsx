@@ -39,7 +39,7 @@ export default function UrlForm(){
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     placeholder="https://example.com/SUPERLONGURL"
-                    className="mb-4 border border-pink-200 bg-white px-3 py-2 focus:border-pink-400 focus:outline-none"
+                    className="mb-4 border border-pink-200 bg-white px-3 py-2 placeholder:text-pink-300 focus:border-pink-400 focus:outline-none"
                 />
 
                 <label htmlFor="alias" className="mb-1 text-sm text-pink-700">Alias</label>
@@ -49,7 +49,7 @@ export default function UrlForm(){
                     value={alias}
                     onChange={(e) => setAlias(e.target.value)}
                     placeholder="your-custom-alias"
-                    className="mb-6 border border-pink-200 bg-white px-3 py-2 focus:border-pink-400 focus:outline-none"
+                    className="mb-6 border border-pink-200 bg-white px-3 py-2 placeholder:text-pink-300 focus:border-pink-400 focus:outline-none"
                 />
 
                 <button
