@@ -31,43 +31,47 @@ export default function UrlForm(){
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="url">URL</label>
+            <form onSubmit={handleSubmit} className="flex flex-col">
+                <label htmlFor="url" className="mb-1 text-sm text-pink-700">URL</label>
                 <input
                     id="url"
                     type="text"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     placeholder="https://example.com/SUPERLONGURL"
+                    className="mb-4 border border-pink-200 bg-white px-3 py-2 focus:border-pink-400 focus:outline-none"
                 />
 
-                <label htmlFor="alias">Alias</label>
+                <label htmlFor="alias" className="mb-1 text-sm text-pink-700">Alias</label>
                 <input
                     id="alias"
                     type="text"
                     value={alias}
                     onChange={(e) => setAlias(e.target.value)}
-                    placeholder="my-link"
+                    placeholder="your-custom-alias"
+                    className="mb-6 border border-pink-200 bg-white px-3 py-2 focus:border-pink-400 focus:outline-none"
                 />
 
                 <button
                     type="submit"
                     disabled={!url.trim() || !alias.trim()}
+                    className="bg-pink-500 py-2 text-white hover:bg-pink-600 disabled:cursor-not-allowed disabled:bg-pink-200"
                 >
                     Shorten
                 </button>
             </form>
 
-            {error && <p>{error}</p>}
+            {error && <p className="mt-4 text-sm text-red-500">{error}</p>}
 
             {shortUrl && (
-                <div>
-                    <a href={shortUrl} target="_blank" rel="noopener noreferrer">
+                <div className="mt-4 flex items-center justify-between gap-2 border border-pink-200 bg-white px-3 py-2">
+                    <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="truncate text-pink-600 hover:underline">
                         {shortUrl}
                     </a>
                     <button
                         type="button"
                         onClick={handleCopy}
+                        className="shrink-0 border border-pink-300 px-3 py-1 text-sm text-pink-600 hover:bg-pink-100"
                     >
                         {copy ? "Copied!" : "Copy"}
                     </button>
